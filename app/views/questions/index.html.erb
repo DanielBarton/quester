@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Questions <%= link_to 'Ask a Question', new_question_path, class: 'btn btn-primary btn-lg' %></h1>
+
+<center>
+<% @questions.each do |question| %>
+<div class="jumbotron">
+  <div class="container">
+    <h3><%= question.body %></h3>
+    <h4>Asked by <%= question.user.email %> in <%= question.category %></h4>
+  </div>
+</div>
+<% end %>
+</center>
