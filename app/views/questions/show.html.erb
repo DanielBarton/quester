@@ -15,5 +15,7 @@
   <%= @question.user %>
 </p>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Give an Answer', new_question_answer_path(@question) %>
+  <% @answers.each do |answer| %>
+    <h4><%= answer.body %> posted by <%= answer.user.email %></h4>
+  <% end %>

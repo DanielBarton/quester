@@ -5,12 +5,15 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    @questions = Question.all.reverse_order
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
+    question = Question.find(params[:id])
+  
+    @answers = question.answers.reverse_order
   end
 
   # GET /questions/new

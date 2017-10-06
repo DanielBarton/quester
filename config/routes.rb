@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :questions
   devise_for :users
-  root 'pages#home'
+  root 'pages#home' 
+  
+  resources :questions do
+   resources :answers
+  end
 end
