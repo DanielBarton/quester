@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1> Math Questions <%= link_to 'Ask a Question', new_question_path, class: 'btn btn-danger btn-lg' %></h1>
+
+<center>
+<% @questions.each do |question| %>
+<div class="jumbotron">
+  <div class="container">
+    <h3><%= link_to question.body, question %></h3>
+    <h4>Asked by <%= question.user.email %> in <%= question.category %></h4>
+    <%= link_to 'Give an Answer', new_question_answer_path(question), class: "btn btn-danger btn-sm" %>
+  </div>
+</div>
+<% end %>
+</center>
