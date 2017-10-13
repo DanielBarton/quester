@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.text_area :body, placeholder: "Sad!" %>
+  <div class="form-group">
+    <%= form.text_area :body, class: "form-control input-lg" %>
   </div>
   
   <div class="form-group">
     <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="for-group">
+    <%= form.submit 'Submit Answer', class: "btn btn-danger btn lg" %>
   </div>
 <% end %>

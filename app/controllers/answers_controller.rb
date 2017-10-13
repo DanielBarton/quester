@@ -14,9 +14,9 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-    question = Question.find(params[:question_id])
+    @question = Question.find(params[:question_id])
    
-    @answer = question.answers.build
+    @answer = @question.answers.build
   end
 
   # GET /answers/1/edit

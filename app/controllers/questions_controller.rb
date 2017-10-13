@@ -5,7 +5,12 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all.reverse_order
+    @questions = Question.all
+    if params[:search]
+      @questions = Question.search(params[:search]).order("created_at DESC")
+    else
+      @questions = Question.all.order("created_at DESC")
+    end
   end
 
   # GET /questions/1
@@ -21,10 +26,11 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build
   end
 
+
+  
   # GET /questions/1/edit
   def edit
   end
-
   # POST /questions
   # POST /questions.json
   def create
@@ -75,4 +81,5 @@ class QuestionsController < ApplicationController
     def question_params
       params.require(:question).permit(:body, :category, :user_id)
     end
+  
 end
